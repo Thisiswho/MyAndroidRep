@@ -33,6 +33,8 @@ public final class MyActivity_
     }
 
     private void init_(Bundle savedInstanceState) {
+        requestWindowFeature(1);
+        requestWindowFeature(5);
     }
 
     @Override

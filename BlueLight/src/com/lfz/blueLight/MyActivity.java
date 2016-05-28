@@ -4,15 +4,19 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.Toast;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.SystemService;
+import org.androidannotations.annotations.WindowFeature;
 
 @EActivity(R.layout.main)
+@WindowFeature({Window.FEATURE_NO_TITLE,Window.FEATURE_INDETERMINATE_PROGRESS})
 public class MyActivity extends Activity {
 
     private FragmentManager manager;
     private long mExitTime;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

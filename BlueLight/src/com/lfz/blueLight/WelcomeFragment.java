@@ -1,18 +1,13 @@
 package com.lfz.blueLight;
 
 import android.app.Fragment;
-import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
-import org.androidannotations.annotations.WindowFeature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +41,14 @@ public class WelcomeFragment extends Fragment {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 container.addView(imageView);
                 mImages.add(imageView);
+                if(position == mImgIds.length - 1) {
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ((MyActivity)getActivity()).showFragment(new MainFragment_());
+                        }
+                    });
+                }
                 return imageView;
             }
 

@@ -6,19 +6,17 @@
 package com.lfz.blueLight;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.lfz.blueLight.R.layout;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
-public final class WelcomeFragment_
-    extends com.lfz.blueLight.WelcomeFragment
-    implements HasViews, OnViewChangedListener
+public final class MainFragment_
+    extends com.lfz.blueLight.MainFragment
+    implements HasViews
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
@@ -44,13 +42,12 @@ public final class WelcomeFragment_
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         contentView_ = super.onCreateView(inflater, container, savedInstanceState);
         if (contentView_ == null) {
-            contentView_ = inflater.inflate(layout.welcome_fragment, container, false);
+            contentView_ = inflater.inflate(layout.main_fragment, container, false);
         }
         return contentView_;
     }
 
     private void init_(Bundle savedInstanceState) {
-        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -59,23 +56,18 @@ public final class WelcomeFragment_
         onViewChangedNotifier_.notifyViewChanged(this);
     }
 
-    public static WelcomeFragment_.FragmentBuilder_ builder() {
-        return new WelcomeFragment_.FragmentBuilder_();
-    }
-
-    @Override
-    public void onViewChanged(HasViews hasViews) {
-        mViewPager = ((ViewPager) hasViews.findViewById(com.lfz.blueLight.R.id.viewPager));
+    public static MainFragment_.FragmentBuilder_ builder() {
+        return new MainFragment_.FragmentBuilder_();
     }
 
     public static class FragmentBuilder_
-        extends FragmentBuilder<WelcomeFragment_.FragmentBuilder_, com.lfz.blueLight.WelcomeFragment>
+        extends FragmentBuilder<MainFragment_.FragmentBuilder_, com.lfz.blueLight.MainFragment>
     {
 
 
         @Override
-        public com.lfz.blueLight.WelcomeFragment build() {
-            WelcomeFragment_ fragment_ = new WelcomeFragment_();
+        public com.lfz.blueLight.MainFragment build() {
+            MainFragment_ fragment_ = new MainFragment_();
             fragment_.setArguments(args);
             return fragment_;
         }
