@@ -6,19 +6,17 @@
 package com.lfz.blueLight;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.lfz.blueLight.R.layout;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
-public final class MainFragment_
-    extends com.lfz.blueLight.MainFragment
-    implements HasViews, OnViewChangedListener
+public final class BlueChatFragment_
+    extends com.lfz.blueLight.BlueChatFragment
+    implements HasViews
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
@@ -44,13 +42,12 @@ public final class MainFragment_
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         contentView_ = super.onCreateView(inflater, container, savedInstanceState);
         if (contentView_ == null) {
-            contentView_ = inflater.inflate(layout.main_fragment, container, false);
+            contentView_ = inflater.inflate(layout.bluechat_fragment, container, false);
         }
         return contentView_;
     }
 
     private void init_(Bundle savedInstanceState) {
-        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -59,23 +56,18 @@ public final class MainFragment_
         onViewChangedNotifier_.notifyViewChanged(this);
     }
 
-    public static MainFragment_.FragmentBuilder_ builder() {
-        return new MainFragment_.FragmentBuilder_();
-    }
-
-    @Override
-    public void onViewChanged(HasViews hasViews) {
-        mViewPager = ((ViewPager) hasViews.findViewById(com.lfz.blueLight.R.id.main_viewPager));
+    public static BlueChatFragment_.FragmentBuilder_ builder() {
+        return new BlueChatFragment_.FragmentBuilder_();
     }
 
     public static class FragmentBuilder_
-        extends FragmentBuilder<MainFragment_.FragmentBuilder_, com.lfz.blueLight.MainFragment>
+        extends FragmentBuilder<BlueChatFragment_.FragmentBuilder_, com.lfz.blueLight.BlueChatFragment>
     {
 
 
         @Override
-        public com.lfz.blueLight.MainFragment build() {
-            MainFragment_ fragment_ = new MainFragment_();
+        public com.lfz.blueLight.BlueChatFragment build() {
+            BlueChatFragment_ fragment_ = new BlueChatFragment_();
             fragment_.setArguments(args);
             return fragment_;
         }

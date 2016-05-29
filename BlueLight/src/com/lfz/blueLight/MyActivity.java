@@ -1,18 +1,17 @@
 package com.lfz.blueLight;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.Window;
 import android.widget.Toast;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.SystemService;
 import org.androidannotations.annotations.WindowFeature;
 
 @EActivity(R.layout.main)
 @WindowFeature({Window.FEATURE_NO_TITLE,Window.FEATURE_INDETERMINATE_PROGRESS})
-public class MyActivity extends Activity {
+public class MyActivity extends FragmentActivity {
 
     private FragmentManager manager;
     private long mExitTime;
@@ -23,7 +22,7 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.main);
 
-        manager = getFragmentManager();
+        manager = getSupportFragmentManager();
         showFragment(new WelcomeFragment_());
     }
     public void showFragment(Fragment fragment){
